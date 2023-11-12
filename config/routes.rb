@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get("/users/:username", { :controller => "users", :action => "show" })
   
   post("/insert_user_record", { :controller => "venues", :action => "create" })
-  post("/update_users/:user_id", { :controller => "users", :action => "update" })
+
+  #update user info
+  post("/update_users/:old_username", { :controller => "users", :action => "update" })
 
   #list of all venues
   get("/venues", { :controller => "venues", :action => "index" })
@@ -23,7 +25,8 @@ Rails.application.routes.draw do
   post("/update_venue/:the_id", { :controller => "application", :action => "update" })
 
   #delete venue
-  get("/delete_venue/:id_to_delete", { :controller => "venue", :action => "destroy" })
+  get("/delete_venue/:id_to_delete", { :controller => "venues", :action => "destroy" })
   
+  #insert comment
   post("/insert_comment_record", { :controller => "comments", :action => "create" })
 end
